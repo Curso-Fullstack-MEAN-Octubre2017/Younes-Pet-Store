@@ -7,6 +7,24 @@ var bodyParser = require('body-parser');
 
 //var sample = require('./routes/sample');
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/customer', {useMongoClient:true});
+
+Customer = require('./models/customer');
+
+
+
+customer.save((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(customer);
+            }
+        })
+
+
+
+
 var app = express();
 
 // view engine setup
