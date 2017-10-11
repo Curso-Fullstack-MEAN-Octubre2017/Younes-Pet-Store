@@ -20,7 +20,7 @@ function getCustomers(req, res) {
 
 //Guardar los datos con el metodo post en la base de datos
 function saveCustomer(req, res) {
-	console.log('hola2');
+	
 	//instanciar un objeto nuevo para crear nuevo cliente
     var customer = new Customer();
     
@@ -29,7 +29,7 @@ function saveCustomer(req, res) {
 
     //el cuerpo del formulario que vamos a mandar despues con el post
     var params = req.body;
-    console.log('hola3');
+    //console.log('hola3');
     console.log(params);
 
     customer.dni = params.dni;
