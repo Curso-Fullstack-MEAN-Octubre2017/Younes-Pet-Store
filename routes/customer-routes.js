@@ -16,6 +16,8 @@ var api = express.Router();
 //Get
 api.get('/customers', CustomerController.getCustomers);
 
+api.get('/customers/:id', CustomerController.getCustomer);
+
 //Post
 api.post('/newcustomer', CustomerController.saveCustomer);
 

@@ -3,6 +3,7 @@ angular.module('petStore', [
     'ngResource',
     'ngRoute',
     'customerList',
-    'customerCard'
+    'customerCard',
+    'petList'
     
 ]);

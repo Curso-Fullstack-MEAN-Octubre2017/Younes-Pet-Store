@@ -8,8 +8,6 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-//var sample = require('./routes/sample');
-
 
 //Llamamos a la clase donde definimos los datos 
 //var crud = require("./tests/customer_crud_tests.js");
@@ -17,6 +15,7 @@ var app = express();
 
 //Aqui se importa todos los archivos de la carpeta rutas
 var customer_routes = require('./routes/customer-routes');
+var pet_routes = require('./routes/pet-routes');
 
 //Conectamos con la base de datos
 mongoose.connect('mongodb://localhost/customer', {useMongoClient:true});
@@ -35,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Base route
 //Crea una ruta base para todas las rutas que corresponden a la api
 app.use('/api', customer_routes);
+app.use('/api', pet_routes);
 
 //// Nuevas Rutas van aqui:
 //app.use('/sample', sample);

@@ -10,7 +10,6 @@ var Customer = require('../models/customer');
 //funciones del controlador para recoger datos de la base de datos
 function getCustomers(req, res) {
 
-	console.log('holaa  funciona ');
     Customer.find({}, (err, customers) => {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
         //if (!customers) return res.status(404).send({message: `No existen clientes`});
@@ -18,6 +17,19 @@ function getCustomers(req, res) {
     })
 }
 
+
+function getCustomer(req, res) {
+    var id = req.params.id;
+
+    console.log(id);
+
+    Customer.findById(id, (err, customers) => {
+        console.log(customers);
+        if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
+        if (!customers) return res.status(404).send({message: `No existen clientes`});
+        res.send(200, customers);
+    });
+}
 //Guardar los datos con el metodo post en la base de datos
 function saveCustomer(req, res) {
 	
@@ -59,5 +71,6 @@ function saveCustomer(req, res) {
 
 module.exports = {
   saveCustomer,
-  getCustomers
+  getCustomers,
+  getCustomer
 };
