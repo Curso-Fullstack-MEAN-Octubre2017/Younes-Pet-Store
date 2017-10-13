@@ -1,0 +1,12 @@
+<div>Customer List</div>
+<section class="list">
+	<div>
+		<ul ng-repeat="customer in customers">                                      
+	        <li>Id: {{customer._id}}</li>
+	        <li>dni: {{customer.dni}}</li>
+	        <li>First name: {{customer.firstName}}</li>
+	        <li>Last name: {{customer.lastName}}</li> 
+	        <a ng-href="/customers/{{customer._id}}">Client card</a>
+        </ul>
+	</div>
+</section>
