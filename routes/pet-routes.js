@@ -16,7 +16,7 @@ var api = express.Router();
 //Get
 api.get('/pets', PetController.getPets);
 
-api.get('/pets/:id', PetController.getPet);
+api.get('/pet/:id', PetController.getPet);
 
 //Post
 api.post('/newpet', PetController.savePet);

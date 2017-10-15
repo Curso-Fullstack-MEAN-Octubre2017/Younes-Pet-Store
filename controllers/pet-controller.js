@@ -41,7 +41,7 @@ function savePet(req, res) {
 
     //el cuerpo del formulario que vamos a mandar despues con el post
     var params = req.body;
-    //console.log('hola3');
+    console.log('hola3');
     console.log(params);
 
     pet.name = params.name;
@@ -49,7 +49,7 @@ function savePet(req, res) {
     pet.picture = params.picture;
     pet.especie = params.especie;
     pet.raza = params.raza;
-    
+    pet.idClient=params.idClient;
 
     //funcion callback si no hay error devuelve el usuario guardado sino devuelve el error
     pet.save((err, petStored) => {
@@ -69,7 +69,7 @@ function savePet(req, res) {
 //export las funciones
 
 module.exports = {
-  savePet,
-  getPets,
-  getPet
+		savePet,
+		getPets,
+		getPet
 };
