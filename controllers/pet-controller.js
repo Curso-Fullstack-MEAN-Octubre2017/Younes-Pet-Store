@@ -9,8 +9,8 @@ var Pet = require('../models/pet');
 
 //funciones del controlador para recoger datos de la base de datos
 function getPets(req, res) {
-
-    Pet.find({}, (err, pets) => {
+	
+    Pet.find({'idClient': req.params.id}, 'name', function (err, pets) {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
         //if (!customers) return res.status(404).send({message: `No existen clientes`});
         res.send(200, pets);
@@ -66,10 +66,27 @@ function savePet(req, res) {
 
 }
 
+function putPet(req,res){
+
+
+    Pet.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, petStored) => {
+        if (err) {
+            console.error(err);
+        } else {
+           res.json(petStored);
+        }
+    });
+
+
+
+}
+
 //export las funciones
 
 module.exports = {
 		savePet,
 		getPets,
-		getPet
+		getPet,
+		putPet
+		
 };

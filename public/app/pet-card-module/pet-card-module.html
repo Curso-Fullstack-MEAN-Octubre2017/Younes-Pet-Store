@@ -1,0 +1,40 @@
+<h1>Pet Card</h1>
+<section class="list">
+	<div>  
+	    <form id="miform">	
+			<table style="width:100%">
+				<tr>
+					<th><label id="id" for="idIn">ID: </label></th>
+					<td><input id="idIn" type="text" name="idIn" ng-model="_id" disabled></td>
+				</tr> 
+				
+				<tr>
+					<th><label id="name" for="NameIn">Name: </label></th>
+					<td><input id="nameIn" type="text" name="NameIn" ng-model="name"></td>
+				</tr> 
+
+				<tr>
+					<th><label id="birthDate" for="birthDateIn">Birth date: </label></th>
+					<td><input id="birthDateIn" type="text" name="birthDateIn" ng-model="birthDate"></td>
+				</tr> 
+				
+				<tr>
+					<th><label id="especie" for="especieIn">Note: </label></th>
+					<td><input id="especieIn" type="text" name="especieIn" ng-model="especie"></td>
+				</tr> 
+				
+				<tr>
+					<th><label id="raza" for="razaIn">Raza: </label></th>
+					<td><input id="razaIn" type="text" name="razaIn" ng-model="raza"></td>
+				</tr> 
+				
+				<tr>
+					<th><label id="idClient" for="idClientIn">Id client: </label></th>
+					<td><input id="idClientIn" type="text" name="idClientIn" ng-model="idClient"></td>
+				</tr> 
+			</table>
+			<input id="update" type="submit" name="update" value="Save changes" ng-click="updatePet()">
+						
+		</form>
+	</div>
+</section>

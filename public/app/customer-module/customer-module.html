@@ -1,7 +1,8 @@
-<div>Customer List</div>
+<h1>Customer List</h1>
+<input id="search" type="text" ng-model="search">
 <section class="list">
 	<div>
-		<ul ng-repeat="customer in customers">                                      
+		<ul ng-repeat="customer in customers|filter:search">                                      
 	        <li>Id: {{customer._id}}</li>
 	        <li>dni: {{customer.dni}}</li>
 	        <li>First name: {{customer.firstName}}</li>
@@ -9,5 +10,4 @@
 	        <a ng-href="/customers/{{customer._id}}">Client card</a>
         </ul>
 	</div>
-	<pet-list></pet-list>
 </section>

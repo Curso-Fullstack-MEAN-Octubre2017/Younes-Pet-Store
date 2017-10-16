@@ -21,6 +21,9 @@ api.get('/customers/:id', CustomerController.getCustomer);
 //Post
 api.post('/newcustomer', CustomerController.saveCustomer);
 
+//put
+api.put('/customers/:id', CustomerController.putCustomer);
+
 
 //exportando el modulo
 module.exports = api;

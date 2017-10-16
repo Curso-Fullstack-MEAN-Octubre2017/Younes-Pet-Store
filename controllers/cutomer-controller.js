@@ -67,10 +67,28 @@ function saveCustomer(req, res) {
 
 }
 
+function putCustomer(req,res){
+
+
+        Customer.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, customerStored) => {
+            if (err) {
+                console.error(err);
+            } else {
+            	res.json(customerStored);
+            }
+        });
+
+  
+	
+}
+
+
+
 //export las funciones
 
 module.exports = {
   saveCustomer,
   getCustomers,
-  getCustomer
+  getCustomer,
+  putCustomer
 };

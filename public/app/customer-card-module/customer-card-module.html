@@ -1,11 +1,11 @@
-<div>Customer Card</div>
+<h1>Customer Card</h1>
 <section class="list">
 	<div>  
 	    <form id="miform">	
 			<table style="width:100%">
 				<tr>
 					<th><label id="id" for="idIn">ID: </label></th>
-					<td><input id="idIn" type="text" name="idIn" ng-model="_id"></td>
+					<td><input id="idIn" type="text" name="idIn" ng-model="_id" disabled></td>
 				</tr> 
 				
 				<tr>
@@ -37,7 +37,9 @@
 					<th><label id="Note" for="NoteIn">Note: </label></th>
 					<td><input id="NoteIn" type="text" name="NoteIn" ng-model="note"></td>
 				</tr> 
-			</table>			
+			</table>
+			<input id="update" type="submit" name="update" value="Save changes" ng-click="updateClient()">
+						
 		</form>
 	</div>
 	<pet-list></pet-list>

@@ -3,7 +3,7 @@ angular.module('customerCard', []);
 angular.module('customerCard').
 	component('customerCard', 
 			{templateUrl:'/app/customer-card-module/customer-card-module.html',
-        controller: function($scope, $http,$routeParams) {
+        controller: function($scope, $http,$routeParams,$location) {
             console.log("Incializando customer card");
             
             var id = $routeParams.id;
@@ -22,5 +22,39 @@ angular.module('customerCard').
                 console.log($scope.customers);
                 
             });
+            
+            $scope.updateClient=function(){
+    	        if($routeParams.id){
+    	            console.log('put')
+    	            $http.put('/api/customers/'+$routeParams.id,{
+    	                "firstName": $scope.firstName,
+    	                "lastName": $scope.lastName,
+    	                "mail": $scope.email,
+    	                "phone": $scope.phone,
+    	                "dni":$scope.dni,
+    	                "note": $scope.note
+    	            })
+    	
+    	        }else{
+    	            console.log('post')
+    	            $http.post('/api/customers',{
+    	            "firstName": $scope.firstName,
+    	            "lastName": $scope.lastName,
+    	            "mail": $scope.email,
+    	            "phone": $scope.phone,
+    	            "dni":$scope.dni,
+    	            "note": $scope.note
+    	        })
+    	        }
+    	        $location.path('/customers')
+    	    }
+    	
+            
+            
+            
         }
+	
+		
+		
     });
+
