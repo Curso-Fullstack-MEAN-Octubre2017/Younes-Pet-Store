@@ -36,8 +36,7 @@ angular.module('petCard').
     	            })
     	
     	        }else{
-    	            console.log('post');
-    	            $http.post('/api/pet',{
+    	            $http.post('/api/newpet',{
     	            	"name": $scope.name,
     	                "birthDate": $scope.birthDate,
     	                "picture": $scope.picture,
@@ -46,10 +45,10 @@ angular.module('petCard').
     	                "idClient": $scope.idClient
     	        })
     	        }
-    	        console.log('put 1');
     	        $location.path('/customers')
     	    }
+            
+            
         }
 	
-		
     });

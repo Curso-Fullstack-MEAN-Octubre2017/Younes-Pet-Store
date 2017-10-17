@@ -11,5 +11,6 @@ angular.module('customerList').
                 $scope.customers = response.data;
                 console.log($scope.customers);
             });
-        }
+            
+       }
     });

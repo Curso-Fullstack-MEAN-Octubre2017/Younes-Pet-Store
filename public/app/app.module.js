@@ -5,6 +5,6 @@ angular.module('petStore', [
     'customerList',
     'customerCard',
     'petList',
-    'petCard'
+    'petCard',
     
 ]);
