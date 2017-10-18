@@ -16,6 +16,7 @@ var app = express();
 //Aqui se importa todos los archivos de la carpeta rutas
 var customer_routes = require('./routes/customer-routes');
 var pet_routes = require('./routes/pet-routes');
+var appointment_routes = require('./routes/appointment-routes');
 
 //Conectamos con la base de datos
 mongoose.connect('mongodb://localhost/customer', {useMongoClient:true});
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Crea una ruta base para todas las rutas que corresponden a la api
 app.use('/api', customer_routes);
 app.use('/api', pet_routes);
+app.use('/api',appointment_routes);
 
 //// Nuevas Rutas van aqui:
 //app.use('/sample', sample);
