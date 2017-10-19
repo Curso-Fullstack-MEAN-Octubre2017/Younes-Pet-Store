@@ -24,16 +24,17 @@ function getAppointmentsByDate(req, res) {
 }
 */
 
-function mapa(dateParcial,hora){
+function mapa(dateParcial,hora,vet,pet){
 	//var startDate = req.params.startDate;
 	//var endDate = req.params.endDate;
 	
 	var gridAppointments = {};
-	gridAppointments[dateParcial] = {};
-	gridAppointments[dateParcial][hora] = {customerName: "Uno", petName: "Otro"};
+	gridAppointments[dateParcial][hora] = {};
+	gridAppointments = {vetId: vet,petId: pet}};
 	return gridAppointments;
 	
 }
+
 
 //funciones del controlador para recoger datos de la base de datos
 function getAppointments(req, res) {
@@ -52,13 +53,29 @@ function getAppointments(req, res) {
 	    mm='0'+mm;
 	} 
 
-	today = mm+'/'+dd+'/'+yyyy;
+	today = mm+'/01/'+yyyy;
+	var monthLater = (mm+1)+'/01/'+yyyy;
 	console.log(today);
-
-	Appointment.find({"date" : {"$gt" : new Date(today)}}, (err, appointments) => {
+	console.log(monthLater);
+	$lt: 60
+	Appointment.find({"date" : {"$gt" : new Date(today),"$lt" : new Date(monthLater)}}, (err, appointments) => {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
-        //if (!customers) return res.status(404).send({message: `No existen clientes`});
         //res.json(200, appointments);
+        /*
+        var appointmentsByDate = {};
+        for (var i=0; i< appointments.length; i++){
+        	var appointment = appointments[i];
+        	var date = dateFormat(appointment.date, "yyyy-MM-dd");
+        	var time = appointment.date;
+        	if(appointmentsByDate[date] == undefined) {
+        		appointmentsByDate[date] = {}
+        	}
+        	appointmentsByDate[date][time] = appointment;
+        	
+        }
+        return res.json(appointmentsByDate);
+        */
+        var miMapa=[];
         
         for (var i=0; i< appointments.length; i++){
             //Para obtener una objeto de tu lista
@@ -70,6 +87,8 @@ function getAppointments(req, res) {
         	var newyyyy = date.getFullYear();
         	var newhour =date.getHours();
         	var newMinutes =date.getMinutes();
+        	var vet = appointment.vet;
+        	var pet = appointment.pet;
         	if(newdd<10) {
         	    dd='0'+dd;
         	} 
@@ -80,11 +99,45 @@ function getAppointments(req, res) {
         	var dateParcial = newmm+'/'+newdd+'/'+newyyyy;
         	var hora=newhour+':'+newMinutes;
         	date = newmm+'/'+newdd+'/'+newyyyy+'-'+newhour+':'+newMinutes;
-        	console.log(mapa(dateParcial,hora));
-        	
+        	//console.log(mapa(dateParcial,hora));
+        	miMapa.push(mapa(dateParcial,hora,vet,pet));
         	//res.json(mapa(dateParcial,hora));
+        } 
+               
+     
+        
+        res.json(miMapa);
+        console.log(miMapa);
+        /*
+        var newMapa = [];
+        var arrayAux=[];
+        console.log(miMapa.length);
+        for(var j=0; j<miMapa.length ; j++){
+        	//console.log(miMapa[j].fecha); 
+        	arrayAux=[];
+        	for(var y=0 ; y<miMapa.length ; y++){
+        		
+        		if(miMapa[j].fecha == miMapa[y].fecha){
+        			console.log(miMapa[j].fecha);
+        			console.log(miMapa[y].detalles);
+        			        			
+        			arrayAux.push(miMapa[j].fecha,miMapa[y].detalles);
+        			console.log(newMapa.length);
+        			
+        		}
+        		
+        	}
+        	newMapa.push(arrayAux);
+        		
+        	
+        	
         }
         
+       
+        
+        console.log(newMapa);
+        res.json(newMapa);
+       */
     })
 }
 

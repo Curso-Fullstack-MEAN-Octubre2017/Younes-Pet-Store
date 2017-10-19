@@ -21,7 +21,7 @@ api.get('/appointments', AppointmentController.getAppointments);
 //api.get('/customer/:id', CustomerController.getCustomer);
 
 //Post
-api.post('/appointments', AppointmentController.saveAppointment);
+api.post('/newappointment', AppointmentController.saveAppointment);
 
 //put
 //api.put('/customers/:id', CustomerController.putCustomer);
