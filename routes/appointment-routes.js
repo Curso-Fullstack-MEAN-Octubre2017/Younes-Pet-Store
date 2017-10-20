@@ -16,8 +16,9 @@ var api = express.Router();
 //Get
 api.get('/appointments', AppointmentController.getAppointments);
 //api.get('/appointments/:id', AppointmentController.getAppointment);
-//api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmentsByDate);
+api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmentsByDate);
 
+api.get('/appointments/:month', AppointmentController.getAppointments);
 //api.get('/customer/:id', CustomerController.getCustomer);
 
 //Post

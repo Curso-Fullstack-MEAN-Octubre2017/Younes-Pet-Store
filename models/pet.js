@@ -9,6 +9,6 @@ const petSchema = new Schema({
 	picture : {type:String,required:true},
 	especie : {type:String,required:true},
 	raza : {type:String},
-	idClient: {type:String,required:true}
+	idClient: {type: Schema.ObjectId,required:true}
 });
 module.exports = mongoose.model("Pet",petSchema);

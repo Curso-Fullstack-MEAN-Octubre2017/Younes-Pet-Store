@@ -1,6 +1,19 @@
 <h1>Appointment List</h1>
-<input id="search" type="text" ng-model="search">
 <section class="list">
 	<div>
-		
+		{{currentMonth}} 
+		<br>
+		{{url}}
 	</div>
+	
+	<div ng-repeat="customer in customers|filter:search">
+		                                    
+	        <li>Id: {{customer._id}}</li>
+	        <li>dni: {{customer.dni}}</li>
+	        <li>First name: {{customer.firstName}}</li>
+	        <li>Last name: {{customer.lastName}}</li> 
+	        
+        </ul>
+        <a id="create" ng-href="/newcustomer">Create Client</a>
+	</div>
+</section>
