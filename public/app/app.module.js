@@ -6,5 +6,6 @@ angular.module('petStore', [
     'customerCard',
     'petList',
     'petCard',
-    'appointmentsList'  
+    'appointmentsList',  
+    'appointmentsDetails'
 ]);

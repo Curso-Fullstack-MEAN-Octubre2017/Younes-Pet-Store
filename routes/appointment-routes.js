@@ -15,17 +15,17 @@ var api = express.Router();
 
 //Get
 api.get('/appointments', AppointmentController.getAppointments);
-//api.get('/appointments/:id', AppointmentController.getAppointment);
+
 api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmentsByDate);
 
 api.get('/appointments/:month', AppointmentController.getAppointments);
-//api.get('/customer/:id', CustomerController.getCustomer);
+api.get('/appointmentsof/:date', AppointmentController.getAppointmentsbyday);
+
 
 //Post
 api.post('/newappointment', AppointmentController.saveAppointment);
 
-//put
-//api.put('/customers/:id', CustomerController.putCustomer);
+
 
 
 //exportando el modulo

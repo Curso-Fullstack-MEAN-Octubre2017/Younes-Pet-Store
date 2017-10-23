@@ -8,20 +8,68 @@ angular.module('appointmentsList').
             var monthParam = $routeParams.month;
             console.log("monthParam", monthParam);
             
-            $scope.currentMonth = moment().startOf('M').format("YYYYMMDD");
+            var currentMonth = moment().startOf('M').format("YYYYMMDD");
             if(monthParam) {
-            	$scope.currentMonth = monthParam;
+            	 monthParam=currentMonth;
             }
-            console.log("currentMonth", $scope.currentMonth);
+            	
             
-            $scope.url = "/api/appointments/"+$scope.currentMonth+"/"+$scope.currentMonth;
             
-            $scope.appointments = [];
+            var nextmonth = moment(monthParam, 'YYYYMM').add(1, 'month').format('YYYYMM');
             
-            $http.get("/api/appointments").then(function (response){
-                $scope.appointments = response.data;
-                console.log($scope.appointments);
+          //PETICION HTTP A LA API
+            $http.get('api/appointments/' + currentMonth + '/' + nextmonth).then(function (res) {
+                $scope.appointments = res.data;
+                
+                console.log('API GET RESULT \n' + $scope.appointments);
+
+                //SCOPE CON MES SIGUIENTE Y MES ANTERIOR AL ACTUAL
+                currentMonth = moment(currentMonth, 'YYYYMM');
+                $scope.nextmonth = moment(currentMonth).add(1, 'month').format('YYYYMM');
+                $scope.lastmonth = moment(currentMonth).subtract(1, 'month').format('YYYYMM');
+                
+                /************************
+                 *  PINTAR CALENDARIO   *
+                 ************************/
+
+                
+                //PINTAR DIAS DE LAS SEMANA EN IDIOMA LOCAL
+                $scope.weeksday = [];
+                for (var i = 1; i <= 7; i++) {
+                    $scope.weeksday.push(moment().isoWeekday(i).format('dddd').toUpperCase());
+                }
+                
+              //PINTAR DIAS DEL MES EN EL CALENDARIO
+                $scope.weeks = [];
+                var day = [];
+                var currDate = moment(currentMonth).startOf('month');
+                var endMonth = moment(currentMonth).endOf('month');
+                
+                while (currDate < endMonth) {
+
+                    for (var i = 1; i <= 7; i++) {
+
+                        if (moment(currDate).isoWeekday() == i && currDate < endMonth) {
+
+                            if ($scope.appointments[moment(currDate).format('YYYY-MM-DD')]) {
+                                var appointmentsofday = {
+                                    day: currDate.toDate(),
+                                    appointments: Object.keys($scope.appointments[moment(currDate).format('YYYY-MM-DD')]).length
+                                }
+
+                            } else {
+                                var appointmentsofday = {day: currDate.toDate(), appointments: 0}
+                            }
+                            day.push(appointmentsofday);
+                            currDate = moment(currDate).add(1, 'days');
+                        } else {
+                            day.push('');
+                        }
+                    }
+                    $scope.weeks.push(day);
+                    
+                    day = [];
+                }
             });
-            
-       }
+        }
     });

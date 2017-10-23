@@ -1,19 +1,36 @@
-<h1>Appointment List</h1>
-<section class="list">
-	<div>
-		{{currentMonth}} 
-		<br>
-		{{url}}
-	</div>
-	
-	<div ng-repeat="customer in customers|filter:search">
-		                                    
-	        <li>Id: {{customer._id}}</li>
-	        <li>dni: {{customer.dni}}</li>
-	        <li>First name: {{customer.firstName}}</li>
-	        <li>Last name: {{customer.lastName}}</li> 
-	        
-        </ul>
-        <a id="create" ng-href="/newcustomer">Create Client</a>
-	</div>
-</section>
+<center>  
+        
+    <table border="1">
+        <thead>
+        <tr>
+            <th><a href="appointments/{{lastmonth}}"><i>Previous Month</i></a></th>
+            <th></th>
+            <th></th>
+            <th><label ng-model ="appointments.monthParam"></label></th>
+            <th></th>
+            <th></th>
+            <th><a href="appointments/{{nextmonth}}"><i>Next Month</i></a></th>
+        </tr>
+        <tr>
+        	
+            <th ng-repeat="dayname in weeksday">{{dayname}}</th>
+            
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="days in weeks">
+            <td ng-repeat="day in days track by $index">
+                <a href="appointmentsof/{{day.day | date:'yyyyMMdd'}}" >
+                    <div ng-class="[day.appointments >0]">
+                        <h4>{{day.day |date: 'dd' }}</h4>
+                        <i ng-if="day.appointments > -1">assignment</i> {{day.appointments}}
+                    </div>
+                </a>
+            </td>
+            <!-- "track by $index" indica que el ng-repeat muestre el dato por su indice en la lista en ver de por un id.
+             hashkey generado por angular que no permite duplicados  -->
+        </tr>
+        </tbody>
+    </table>
+</center>

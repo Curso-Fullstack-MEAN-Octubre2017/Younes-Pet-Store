@@ -10,7 +10,7 @@ angular.module('petStore')
             .when("/",{
                 template: "<h1>Pet Store Oficial</h1><br>" +
                 		"<a ng-href='/customers'>Customers List</a><br>" +
-                		"<a ng-href='/appointments/:month/:month'>Appointments List</a>"
+                		"<a ng-href='/appointments/:month'>Appointments List</a>"
             })
             .when("/customer/:id",{
               	//templateUrl: '<pet-card></pet-card>'
@@ -35,9 +35,12 @@ angular.module('petStore')
             })
             
             
-            .when("/appointments/:month/:month",{
+            .when("/appointments/:month",{
               	template: "<appointments-list></appointments-list>"
             })
+            
+            .when("/appointmentsof/:date", {
+            	template: "<appointments-details></appointmentsday-details>"})
             
             
             .otherwise({
