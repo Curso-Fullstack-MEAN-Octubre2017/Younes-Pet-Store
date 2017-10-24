@@ -56,42 +56,6 @@ function getAppointments(req, res) {
 }
 
 
-//funciones del controlador para recoger datos de la base de datos
-function getAppointmentsbyday(req, res) {
-	
-	var startDateParam = req.params.date;
-	
-	var startDate = moment(startDateParam).format('YYYYMMDD'); 
-
-	
-	
-	console.log(startDate);
-	Appointment.find({"date" : startDate}, (err, appointments) => {
-        if (err) {
-        	return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
-        }
-        console.log(appointments);
-        var appointmentsByDate = {};
-        for (var i=0; i< appointments.length; i++){
-        	var appointment = appointments[i];
-            //var date = moment(appointment.date).format('YYYY-MM-DD');
-            var time = moment(appointment.date).format('hh:mm');
-            if(appointmentsByDate[time] == undefined) {
-        		appointmentsByDate[time] = time
-        	}
-        
-        	
-        }
-        return res.json(appointmentsByDate);
-	}).populate({
-        path:'pet',
-        model:'Pet',
-        select:'name especie'
-        
-    });
-	//console.log(appointments);
-}
-
 //Guardar los datos con el metodo post en la base de datos
 function saveAppointment(req, res) {
 	
@@ -133,7 +97,6 @@ function saveAppointment(req, res) {
 module.exports = {
 	getAppointmentsByDate,
 	getAppointments,
-	getAppointmentsbyday,
 	saveAppointment
 	
 };

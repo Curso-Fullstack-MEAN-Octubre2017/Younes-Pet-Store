@@ -19,11 +19,11 @@ api.get('/appointments', AppointmentController.getAppointments);
 api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmentsByDate);
 
 api.get('/appointments/:month', AppointmentController.getAppointments);
-api.get('/appointmentsof/:date', AppointmentController.getAppointmentsbyday);
+
 
 
 //Post
-api.post('/newappointment', AppointmentController.saveAppointment);
+api.post('/appointments', AppointmentController.saveAppointment);
 
 
 

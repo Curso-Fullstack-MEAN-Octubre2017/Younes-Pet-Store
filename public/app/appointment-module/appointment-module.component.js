@@ -9,13 +9,16 @@ angular.module('appointmentsList').
             console.log("monthParam", monthParam);
             
             var currentMonth = moment().startOf('M').format("YYYYMMDD");
-            if(monthParam) {
-            	 monthParam=currentMonth;
+           
+            if(monthParam){
+            	
+            	 currentMonth=monthParam;
+            	 console.log("entra");
             }
             	
             
             
-            var nextmonth = moment(monthParam, 'YYYYMM').add(1, 'month').format('YYYYMM');
+            var nextmonth = moment(currentMonth, 'YYYYMM').add(1, 'month').format('YYYYMM');
             
           //PETICION HTTP A LA API
             $http.get('api/appointments/' + currentMonth + '/' + nextmonth).then(function (res) {

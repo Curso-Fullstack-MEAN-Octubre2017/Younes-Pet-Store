@@ -36,7 +36,7 @@ angular.module('petCard').
     	            })
     	
     	        }else{
-    	            $http.post('/api/newpet',{
+    	            $http.post('/api/pets',{
     	            	"name": $scope.name,
     	                "birthDate": $scope.birthDate,
     	                "picture": $scope.picture,

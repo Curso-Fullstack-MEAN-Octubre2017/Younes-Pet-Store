@@ -19,7 +19,7 @@ api.get('/customers', CustomerController.getCustomers);
 api.get('/customer/:id', CustomerController.getCustomer);
 
 //Post
-api.post('/newcustomer', CustomerController.saveCustomer);
+api.post('/customers', CustomerController.saveCustomer);
 
 //put
 api.put('/customers/:id', CustomerController.putCustomer);

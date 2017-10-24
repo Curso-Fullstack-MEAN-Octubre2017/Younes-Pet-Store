@@ -24,7 +24,7 @@ angular.module('customerCard').
     	
     	        }else{
     	            console.log('post')
-    	            $http.post('/api/newcustomer',$scope.customer)
+    	            $http.post('/api/customers',$scope.customer)
     	        }
     	        $location.path('/customers')
     	    }

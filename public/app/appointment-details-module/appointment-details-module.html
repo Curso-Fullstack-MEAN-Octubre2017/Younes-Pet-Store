@@ -1,5 +1,14 @@
-<ul class="collection">
-    <li ng-repeat="appointment in appointments">
-        
-    </li>
-</ul>
+<h1>List of Appointments</h1>
+    <div ng-repeat="app in appointment">
+	    {{app.hora}}
+	    <br>
+	    <div ng-show="{{app.datos.pet}}">
+		    Pet name:{{app.datos.pet.name}}
+		    <br>
+		    State:{{app.datos.state}}
+		    <br>
+		    Note:{{app.datos.note}}
+	    </div>
+    <hr />
+    </div>
+</div>

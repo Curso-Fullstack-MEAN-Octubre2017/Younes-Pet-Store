@@ -19,7 +19,7 @@ api.get('/pets/:id', PetController.getPets);
 api.get('/pet/:id', PetController.getPet);
 
 //Post
-api.post('/newpet', PetController.savePet);
+api.post('/pets', PetController.savePet);
 
 //put
 api.put('/pet/:id', PetController.putPet);

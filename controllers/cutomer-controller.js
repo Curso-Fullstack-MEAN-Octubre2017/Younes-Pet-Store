@@ -82,8 +82,6 @@ function putCustomer(req,res){
 	
 }
 
-
-
 //export las funciones
 
 module.exports = {
