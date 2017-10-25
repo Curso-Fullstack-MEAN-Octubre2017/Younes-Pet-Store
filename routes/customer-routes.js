@@ -16,13 +16,17 @@ var api = express.Router();
 //Get
 api.get('/customers', CustomerController.getCustomers);
 
-api.get('/customer/:id', CustomerController.getCustomer);
+api.get('/customers/:id', CustomerController.getCustomer);
 
 //Post
 api.post('/customers', CustomerController.saveCustomer);
 
 //put
 api.put('/customers/:id', CustomerController.putCustomer);
+
+//delete
+api.delete('/customers/:id', CustomerController.deleteCustomer);
+
 
 
 //exportando el modulo

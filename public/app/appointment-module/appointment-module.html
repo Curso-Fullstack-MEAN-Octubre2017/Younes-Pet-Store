@@ -24,7 +24,7 @@
                 <a href="appointmentsof/{{day.day | date:'yyyyMMdd'}}" >
                     <div ng-class="[day.appointments >0]">
                         <h4>{{day.day |date: 'dd' }}</h4>
-                        <i ng-if="day.appointments > -1">assignment</i> {{day.appointments}}
+                        <i ng-if="day.appointments > -1">Dates</i> {{day.appointments}}
                     </div>
                 </a>
             </td>

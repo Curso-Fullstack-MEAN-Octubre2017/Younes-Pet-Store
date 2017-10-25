@@ -3,28 +3,36 @@ angular.module('appointmentsList', []);
 angular.module('appointmentsList').
 	component('appointmentsList', 
 			{templateUrl:'/app/appointment-module/appointment-module.html',
-        controller: function($scope, $http, $routeParams) {
+        controller: function($scope, $http, $routeParams,$location, appointmentsService) {
             console.log("Incializando appointments list", $routeParams);
             var monthParam = $routeParams.month;
-            console.log("monthParam", monthParam);
+            
             
             var currentMonth = moment().startOf('M').format("YYYYMMDD");
            
             if(monthParam){
-            	
             	 currentMonth=monthParam;
-            	 console.log("entra");
             }
             	
             
             
             var nextmonth = moment(currentMonth, 'YYYYMM').add(1, 'month').format('YYYYMM');
-            
+            /***************************************************/
+            var date = moment().startOf('month');
+            $scope.month = moment(date).startOf('month').format('MMMM').toUpperCase();
+            $scope.year = moment(date).startOf('month').format('YYYY');
+            /********************************************************************/
           //PETICION HTTP A LA API
-            $http.get('api/appointments/' + currentMonth + '/' + nextmonth).then(function (res) {
-                $scope.appointments = res.data;
+            //$http.get('api/appointments/' + currentMonth + '/' + nextmonth).then(function (res) {
+                //$scope.appointments = res.data;
                 
-                console.log('API GET RESULT \n' + $scope.appointments);
+                ///console.log('API GET RESULT \n' + $scope.appointments);
+            appointmentsService.getMonthAppointmentsByDate(currentMonth).then(function(res){
+                $scope.appointments = res;
+                console.log('API GET RESULT '+ res);
+                console.log(res);
+                
+                
 
                 //SCOPE CON MES SIGUIENTE Y MES ANTERIOR AL ACTUAL
                 currentMonth = moment(currentMonth, 'YYYYMM');

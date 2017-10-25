@@ -82,11 +82,24 @@ function putCustomer(req,res){
 	
 }
 
+function deleteCustomer(req,res){
+	var id = req.params.id;
+
+    Customer.remove({_id: id}, function (err) {
+        if (err) return res.status(500).send({message: `Error al borrar: ${err}`});
+        res.json({message: 'borrado correctamente'});
+    });
+	
+}
+
+
+
 //export las funciones
 
 module.exports = {
   saveCustomer,
   getCustomers,
   getCustomer,
-  putCustomer
+  putCustomer,
+  deleteCustomer
 };
