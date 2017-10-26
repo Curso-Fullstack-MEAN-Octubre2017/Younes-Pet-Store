@@ -26,14 +26,13 @@ angular.module('petStore')
                 template: "<customer-list></customer-list>"
             })
             
-            .when("/pet/:id",{
+            .when("/pets/:id",{
               	template: "<pet-card></pet-card>"
             })
-            
-            .when("/pets",{
+              .when("/pets",{
               	template: "<pet-card></pet-card>"
             })
-            
+                       
             .when("/appointments/",{
               	template: "<appointments-list></appointments-list>"
             })

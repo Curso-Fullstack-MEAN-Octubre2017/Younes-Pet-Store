@@ -16,13 +16,13 @@ var api = express.Router();
 //Get
 api.get('/pets/:id', PetController.getPets);
 
-api.get('/pet/:id', PetController.getPet);
+api.get('/pets/:id', PetController.getPet);
 
 //Post
 api.post('/pets', PetController.savePet);
 
 //put
-api.put('/pet/:id', PetController.putPet);
+api.put('/pets/:id', PetController.putPet);
 
 //exportando el modulo
 module.exports = api;

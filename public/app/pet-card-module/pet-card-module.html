@@ -5,32 +5,43 @@
 			<table style="width:100%">
 				<tr>
 					<th><label id="id" for="idIn">ID: </label></th>
-					<td><input id="idIn" type="text" name="idIn" ng-model="_id" disabled></td>
+					<td><input id="idIn" type="text" name="idIn" ng-model="pet._id" disabled></td>
 				</tr> 
 				
 				<tr>
 					<th><label id="name" for="NameIn">Name: </label></th>
-					<td><input id="nameIn" type="text" name="NameIn" ng-model="name"></td>
+					<td><input id="nameIn" type="text" name="NameIn" ng-model="pet.name"></td>
 				</tr> 
 
 				<tr>
 					<th><label id="birthDate" for="birthDateIn">Birth date: </label></th>
-					<td><input id="birthDateIn" type="text" name="birthDateIn" ng-model="birthDate"></td>
+					<td><input id="birthDateIn" type="date" name="birthDateIn" ng-model="birthDate"></td>
+				</tr> 
+				
+				<tr>
+					<th><img src="pet.picture" width="100" height="120" /></th>
+					<td><input id="pictureIn" type="file" name="pictureIn" ng-model="pet.picture"></td>
+				</tr>
+				
+				<tr>
+					<th><label id="shipNumber" for="shipNumberIn">Ship number: </label></th>
+					<td><input id="shipNumberIn" type="text" name="shipNumberIn" ng-model="pet.shipNumber"></td>
 				</tr> 
 				
 				<tr>
 					<th><label id="especie" for="especieIn">Note: </label></th>
-					<td><input id="especieIn" type="text" name="especieIn" ng-model="especie"></td>
+					<td><input id="especieIn" type="text" name="especieIn" ng-model="pet.especie"></td>
 				</tr> 
 				
 				<tr>
 					<th><label id="raza" for="razaIn">Raza: </label></th>
-					<td><input id="razaIn" type="text" name="razaIn" ng-model="raza"></td>
+					<td><input id="razaIn" type="text" name="razaIn" ng-model="pet.raza"></td>
 				</tr> 
+				
 				
 				<tr>
 					<th><label id="idClient" for="idClientIn">Id client: </label></th>
-					<td><input id="idClientIn" type="text" name="idClientIn" ng-model="idClient"></td>
+					<td><input id="idClientIn" type="text" name="idClientIn" ng-model="pet.idClient"></td>
 				</tr> 
 			</table>
 			<input id="update" type="submit" name="update" value="Save changes" ng-click="updatePet()">

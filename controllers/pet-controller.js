@@ -9,8 +9,7 @@ var Pet = require('../models/pet');
 
 //funciones del controlador para recoger datos de la base de datos
 function getPets(req, res) {
-	
-    Pet.find({'idClient': req.params.id}, 'name', function (err, pets) {
+    Pet.find({'idClient': req.params.id}, function (err, pets) {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
         //if (!customers) return res.status(404).send({message: `No existen clientes`});
         res.send(200, pets);
@@ -41,12 +40,13 @@ function savePet(req, res) {
 
     //el cuerpo del formulario que vamos a mandar despues con el post
     var params = req.body;
-    console.log('hola3');
+    
     console.log(params);
 
     pet.name = params.name;
     pet.birthDate = params.birthDate;
     pet.picture = params.picture;
+    pet.shipNumber = params.shipNumber;
     pet.especie = params.especie;
     pet.raza = params.raza;
     pet.idClient=params.idClient;

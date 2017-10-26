@@ -5,7 +5,7 @@ angular.module('petList').
 			{templateUrl:'/app/pet-module/pet-module.html',
         controller: function($scope, $http,$routeParams) {
             console.log("Incializando pet list");
-            $scope.pets = [];
+            //$scope.pets = [];
             
             $http.get("/api/pets/"+$routeParams.id).then(function (response){
                 $scope.pets = response.data;

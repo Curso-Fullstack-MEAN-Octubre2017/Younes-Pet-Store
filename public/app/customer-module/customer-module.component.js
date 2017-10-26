@@ -4,10 +4,15 @@ angular.module('customerList', []);
 angular.module('customerList').
 	component('customerList', 
 			{templateUrl:'/app/customer-module/customer-module.html',
-			controller: function($scope, $http,$location, $routeParams, customersService) {
+			controller: function($rootScope, $scope, $http,$location, $routeParams, customersService) {
 				 console.log("Incializando costumer list resource");
 			    	$scope.customers = [];
-			    	 
+			    	
+			    	$rootScope.$on("message:success",function(event,message){
+			    		alert(message.message);
+			    		
+			    	})
+			    	
 					$scope.search = {};
 					if($location.search().searchTerm) {
 						$scope.search.searchTerm = $location.search().searchTerm;

@@ -64,6 +64,7 @@ angular.module('customerCard').
         		}
     		}
         	
+        	//funcion de borrar atraves del id 
         	$scope.remove = function() {
         		if(confirm("Esta seguro que desea borrar este registro")) {
         			customersService.remove({id: $scope.customer._id},

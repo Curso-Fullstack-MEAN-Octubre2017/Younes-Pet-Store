@@ -9,5 +9,6 @@ angular.module('petStore', [
     'appointmentsList',  
     'appointmentsDetails',
     'appointmentsService',
-    'customersService'
+    'customersService',
+    'petService'
 ]);
