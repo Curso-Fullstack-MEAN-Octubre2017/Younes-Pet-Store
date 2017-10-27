@@ -3,39 +3,15 @@ angular.module('customerCard', []);
 angular.module('customerCard').
 	component('customerCard', 
 			{templateUrl:'/app/customer-card-module/customer-card-module.html',
-        controller: function($scope, $http,$routeParams,$location,customersService) {
-        	
-        	/*
-            console.log("Incializando customer card");
-            
-            var id = $routeParams.id;
-            
-            $scope.customer = {};
-            if(id != ""){
-	            $http.get("/api/customer/" + id).then(function (response){
-	            	$scope.customer= response.data;
-	                console.log("Customer Details:", $scope.customer);
-	                
-	            });
-            }
-            
-            $scope.updateClient=function(){
-    	        if($routeParams.id){
-    	            console.log('put')
-    	            $http.put('/api/customer/'+$routeParams.id,$scope.customer)
-    	
-    	        }else{
-    	            console.log('post')
-    	            $http.post('/api/customers',$scope.customer)
-    	        }
-    	        $location.path('/customers')
-    	    }
-    		*/
-            
-        	console.log("CustomerController");
+        controller: function($scope, $http,$routeParams,$location,customersService,$rootScope) {
         	$scope.customer = {};
+        	
+        	$rootScope.$on("message:success",function(event,message){
+	    		alert(message.message);
+	    		
+	    	})
         	var id = $routeParams.id;
-        	if(id != 'new') {
+        	if(id) {
         		$scope.customer = customersService.get({id: id});
         	}
         	
@@ -69,8 +45,9 @@ angular.module('customerCard').
         		if(confirm("Esta seguro que desea borrar este registro")) {
         			customersService.remove({id: $scope.customer._id},
     					function() {
+        					console.log("hola");
     						alert("Borrado OK");
-    						$location.path("customers");
+    						$location.path("/");
     					}, function() {
     						alert("Borrado Failed!!");
     					});

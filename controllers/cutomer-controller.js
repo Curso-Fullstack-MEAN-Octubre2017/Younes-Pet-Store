@@ -9,7 +9,7 @@ var Customer = require('../models/customer');
 
 //funciones del controlador para recoger datos de la base de datos
 function getCustomers(req, res) {
-
+	console.log("entra");
     Customer.find({}, (err, customers) => {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
         //if (!customers) return res.status(404).send({message: `No existen clientes`});

@@ -1,5 +1,5 @@
 <h1>Customer List</h1>
-<input id="search" type="text" ng-model="search">
+<input type="text" ng-click="searchCustomers()" />
 <section class="list">
 	<div>
 		<ul ng-repeat="customer in customers|filter:search">                                      
@@ -8,6 +8,7 @@
 	        <li>First name: {{customer.firstName}}</li>
 	        <li>Last name: {{customer.lastName}}</li> 
 	        <a ng-href="/customer/{{customer._id}}">Client card</a>
+	        <input type="button" ng-click="remove(customer._id)" value="Delete"/>
         </ul>
         <a id="create" ng-href="/customers/card">Create Client</a>
 	</div>

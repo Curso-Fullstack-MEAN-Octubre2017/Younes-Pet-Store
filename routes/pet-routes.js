@@ -14,15 +14,16 @@ var api = express.Router();
 //Aqui se crea las rutas por cada metodos definidos en el controlador
 
 //Get
-api.get('/pets/:id', PetController.getPets);
-
-api.get('/pets/:id', PetController.getPet);
+api.get('/pets/:owner', PetController.getPets);
+//Get one client
+api.get('/pets/card/:id', PetController.getPet);
 
 //Post
-api.post('/pets', PetController.savePet);
+api.post('/pets/card/', PetController.savePet);
 
 //put
-api.put('/pets/:id', PetController.putPet);
+api.put('/pets/card/:id', PetController.putPet);
+api.delete('/pets/card/:id', PetController.deletePet);
 
 //exportando el modulo
 module.exports = api;
