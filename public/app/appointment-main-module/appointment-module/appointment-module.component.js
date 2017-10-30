@@ -2,7 +2,7 @@
 angular.module('appointmentsList', []);
 angular.module('appointmentsList').
 	component('appointmentsList', 
-			{templateUrl:'/app/appointment-module/appointment-module.html',
+			{templateUrl:'/app/appointment-main-module/appointment-module/appointment-module.html',
         controller: function($scope, $http, $routeParams,$location, appointmentsService) {
             console.log("Incializando appointments list", $routeParams);
             var monthParam = $routeParams.month;

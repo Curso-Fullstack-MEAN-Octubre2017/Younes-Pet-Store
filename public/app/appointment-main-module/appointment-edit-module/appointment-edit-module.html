@@ -1,0 +1,42 @@
+<h1>Appointment Card</h1>
+    <div>
+	  	<form id="miform">
+	  	
+	  		<table>
+	  			<tr>
+    				<td><label>Appointment Id: </label></td>
+    				<td><input  type="text" ng-model="appointment._id"></td>
+  				</tr>
+	  			<tr>
+    				<td><label>Appointment Date: </label></td>
+    				<td><input  type="text" ng-model="appointment.date"><br></td>
+  				</tr>
+  				<tr>
+    				<td><label>Appointment End Date: </label></td>
+    				<td><input  type="text" ng-model="appointment.dateEnd"><br></td>
+  				</tr>
+  				<tr>
+    				<td><label>Note: </label></td>
+    				<td><input  type="text" ng-model="appointment.note"><br></td>
+  				</tr>
+  				<tr>
+    				<td><label>Pet: </label></td>
+    				<td><input  type="text" ng-model="appointment.pet"><br></td>
+  				</tr>
+  				<tr>
+    				<td><label>State: </label></td>
+    				<td><input  type="text" ng-model="appointment.state"><br></td>
+  				</tr>
+  				<tr>
+    				<td><label>Vet: </label></td>
+    				<td><input  type="text" ng-model="appointment.vet"><br></td>
+  				</tr>
+	  		</table>
+	  		<input type="button" ng-click="remove(appointment._id)" value="Delete"/>
+			<input type="button" ng-click="submit(appointment._id)" value="Save"/>
+			<input type="button" ng-click="cancel(appointment._id)" value="Cancel"/>
+	  	</form>
+	    
+    <hr />
+    </div>
+</div>

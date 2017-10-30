@@ -21,12 +21,14 @@ api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmen
 api.get('/appointments/:month', AppointmentController.getAppointments);
 api.get('/appointment/:id', AppointmentController.getAppointment);
 
-
-
 //Post
 api.post('/appointments', AppointmentController.saveAppointment);
 
+//Delete
+api.delete('/appointments/:id', AppointmentController.deleteAppointment);
 
+//Actualizar
+api.put('/appointments/:id', AppointmentController.putAppointment);
 
 
 //exportando el modulo

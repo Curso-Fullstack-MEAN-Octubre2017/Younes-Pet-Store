@@ -105,12 +105,34 @@ function saveAppointment(req, res) {
 
 }
 
+function putAppointment(req, res){
+	Appointment.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, appointmentStored) => {
+        if (err) {
+            console.error(err);
+        } else {
+           res.json(appointmentStored);
+        }
+    });
+	
+}
+
+function deleteAppointment(req, res){
+	var id = req.params.id;
+
+	Appointment.remove({_id: id}, function (err) {
+        if (err) return res.status(500).send({message: `Error al borrar: ${err}`});
+        res.json({message: 'borrado correctamente'});
+    });
+}
+
 //export las funciones
 
 module.exports = {
 	getAppointmentsByDate,
 	getAppointments,
 	saveAppointment,
-	getAppointment
+	getAppointment,
+	putAppointment,
+	deleteAppointment
 	
 };
