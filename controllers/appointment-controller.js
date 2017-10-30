@@ -55,6 +55,19 @@ function getAppointments(req, res) {
     })
 }
 
+//funciones del controlador para recoger datos de la base de datos
+function getAppointment(req, res) {
+	var id = req.params.id;
+
+    console.log(id);
+
+    Appointment.findById(id, (err, appointment) => {
+        if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
+        res.json(appointment);
+               
+    })
+}
+
 
 //Guardar los datos con el metodo post en la base de datos
 function saveAppointment(req, res) {
@@ -97,6 +110,7 @@ function saveAppointment(req, res) {
 module.exports = {
 	getAppointmentsByDate,
 	getAppointments,
-	saveAppointment
+	saveAppointment,
+	getAppointment
 	
 };

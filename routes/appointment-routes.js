@@ -19,6 +19,7 @@ api.get('/appointments', AppointmentController.getAppointments);
 api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmentsByDate);
 
 api.get('/appointments/:month', AppointmentController.getAppointments);
+api.get('/appointment/:id', AppointmentController.getAppointment);
 
 
 

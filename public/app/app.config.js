@@ -42,7 +42,12 @@ angular.module('petStore')
             })
             
             .when("/appointmentsof/:date", {
-            	template: "<appointments-details></appointmentsday-details>"})
+            	template: "<appointments-details></appointments-details>"
+            })
+            
+            .when("/appointment-detail/:id", {
+            	template: "<appointment-edit></appointment-edit>"
+            })
             
             
             .otherwise({

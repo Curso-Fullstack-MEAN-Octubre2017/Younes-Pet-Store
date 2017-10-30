@@ -1,14 +1,15 @@
 <h1>List of Appointments</h1>
     <div ng-repeat="app in appointment">
-	    {{app.hora}}
+	    {{app.hora}} <a ng-href="/appointment-detail/{{app.datos._id}}">Crear Cita</a>
+	    
 	    <br>
-	    <div ng-show="{{app.datos.pet}}">
+	   
 		    Pet name:{{app.datos.pet.name}}
 		    <br>
 		    State:{{app.datos.state}}
 		    <br>
 		    Note:{{app.datos.note}}
-	    </div>
+	    
     <hr />
     </div>
 </div>
