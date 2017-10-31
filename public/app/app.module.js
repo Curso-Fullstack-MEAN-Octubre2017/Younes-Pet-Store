@@ -12,5 +12,6 @@ angular.module('petStore', [
     'customersService',
     'petService',
     'appointmentEdit',
-    'appointmentMain'
+    'appointmentMain',
+    'formCustomerDirective'
 ]);

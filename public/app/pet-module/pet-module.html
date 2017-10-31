@@ -1,10 +1,11 @@
 <section class="list">
+	<h2><strong>Pet List</strong></h2>
 	<div>
-		<ul ng-repeat="pet in pets">                                   
-	        <li>Id: {{pet._id}}</li>
-	        <li>Name: {{pet.name}}</li>
-	        <a ng-href="/pets/card/{{pet._id}}">Pet card</a>
-	        <a ng-href="/pets/cardNew/{{pet.idClient}}">New Pet</a>
-        </ul>
+		<div ng-repeat="pet in pets">                                   
+	        <h6>Id: {{pet._id}}</h6>
+	        <h6>Name: {{pet.name}}</h6>
+	        <a ng-href="/pets/card/{{pet._id}}" class="btn btn-primary btn-xs ">Pet card</a>
+	        <hr> 
+        </div>
 	</div>
 </section>

@@ -1,50 +1,29 @@
-<h1>Customer Card</h1>
-<section class="list">
-	<div>  
-	    <form id="miform">	
-			<table style="width:100%">
-				<tr>
-					<th><label id="id" for="idIn">ID: </label></th>
-					<td><input id="idIn" type="text" name="idIn" ng-model="customer._id" disabled></td>
-				</tr> 
-				
-				<tr>
-					<th><label id="DNI" for="DNIIn">DNI: </label></th>
-					<td><input id="DNIIn" type="text" name="DNIIn" ng-model="customer.dni"></td>
-				</tr> 
-				
-				<tr>
-					<th><label id="firstName" for="firstNameIn">First name: </label></th>
-					<td><input id="firstNameIn" type="text" name="firstNameIn" ng-model="customer.firstName"></td>
-				</tr> 
-				
-				<tr>
-					<th><label id="lastName" for="lastNameIn">Last name: </label></th>
-					<td><input id="lastNameIn" type="text" name="lastNameIn" ng-model="customer.lastName"></td>
-				</tr> 
-				
-				<tr>
-					<th><label id="phone" for="phoneIn">Phone: </label></th>
-					<td><input id="phoneIn" type="text" name="phoneIn" ng-model="customer.phone"></td>
-				</tr> 
-				
-				<tr>
-					<th><label id="Email" for="EmailIn">Email: </label></th>
-					<td><input id="EmailIn" type="text" name="EmailIn" ng-model="customer.email"></td>
-				</tr> 
-				
-				<tr>
-					<th><label id="Note" for="NoteIn">Note: </label></th>
-					<td><input id="NoteIn" type="text" name="NoteIn" ng-model="customer.note"></td>
-				</tr> 
-			</table>
-			<input type="button" ng-click="remove()" value="Delete"/>
-			<input type="button" ng-click="submit()" value="Save"/>
-			<input type="button" ng-click="cancel()" value="Cancel"/>
+<div class="container">
+<h1><strong>Customer Card</strong></h1>
+<section class="row" style="background-color:powderblue;">
+
+	<div class="col-sm-5">  
+	    <form id="miform">
+	    
+	    		<label-input-form-group data-label="ID: " data-model="customer._id" data-placeholder="ID" />
+	    		<label-input-form-group data-label="DNI: " data-model="customer.dni" data-placeholder="DNI" />
+	    		<label-input-form-group data-label="First name: " data-model="customer.firstName" data-placeholder="First name" />
+	    		<label-input-form-group data-label="Last name: " data-model="customer.lastName" data-placeholder="Last name" />
+	    		<label-input-form-group data-label="Phone: " data-model="customer.phone" data-placeholder="Phone" />
+	    		<label-input-form-group data-label="Email: " data-model="customer.email" data-placeholder="Email" />
+	    		<label-input-form-group data-label="Note: " data-model="customer.note" data-placeholder="Note" />
+	    		
+			<div class="form-group row">	
+				<input type="button" ng-click="submit()" value="Save" class="btn btn-primary btn-xs"/>
+				<a ng-href="/pets/cardNew/{{customer._id}}" class="btn btn-secondary btn-xs" >New Pet</a>
+				<input type="button" ng-click="remove()" value="Delete" class="btn btn-danger btn-xs" />
+				<input type="button" ng-click="cancel()" value="Cancel" class="btn btn-warning btn-xs"/>
+			</div>
+			
 						
 		</form>
 	</div>
 	
-	<pet-list ng-show="!isNew"></pet-list>
+	<pet-list ng-show="!isNew" class="col-sm-5"></pet-list>
 </section>
-
+</div>

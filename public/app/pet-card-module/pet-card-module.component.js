@@ -44,7 +44,7 @@ angular.module('petCard').
         				$location.path("customer/"+$scope.pets.idClient);
         			}, errorCallback);*/
         			petService.save({}, $scope.pets, function(customer) {
-        				$scope.$emit("message:success", {message: "Cliente dado de alta con exito"})
+        				$scope.$emit("message:success", {message: "Pet dado de alta con exito"})
         				$location.path("customer/"+$scope.pets.idClient);
         			}, errorCallback);
         		} else {
