@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" style="background-color:powderblue;">
 <h1><strong>Customer Card</strong></h1>
-<section class="row" style="background-color:powderblue;">
+<section class="row">
 
 	<div class="col-sm-5">  
 	    <form id="miform">
@@ -15,9 +15,9 @@
 	    		
 			<div class="form-group row">	
 				<input type="button" ng-click="submit()" value="Save" class="btn btn-primary btn-xs"/>
-				<a ng-href="/pets/cardNew/{{customer._id}}" class="btn btn-secondary btn-xs" >New Pet</a>
-				<input type="button" ng-click="remove()" value="Delete" class="btn btn-danger btn-xs" />
-				<input type="button" ng-click="cancel()" value="Cancel" class="btn btn-warning btn-xs"/>
+				<a ng-href="/pets/cardNew/{{customer._id}}" class="btn btn-default btn-xs" >New Pet</a>
+				<input type="button" ng-click="remove()" value="Delete" class="btn btn-default btn-xs" />
+				<input type="button" ng-click="cancel()" value="Cancel" class="btn btn-default btn-xs"/>
 			</div>
 			
 						

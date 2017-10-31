@@ -1,15 +1,18 @@
-<h1>Customer List</h1>
-<input type="text" ng-click="searchCustomers()" />
-<section class="list">
-	<div>
-		<ul ng-repeat="customer in customers|filter:search">                                      
-	        <li>Id: {{customer._id}}</li>
-	        <li>dni: {{customer.dni}}</li>
-	        <li>First name: {{customer.firstName}}</li>
-	        <li>Last name: {{customer.lastName}}</li> 
-	        <a ng-href="/customer/{{customer._id}}">Client card</a>
-	        <input type="button" ng-click="remove(customer._id)" value="Delete"/>
-        </ul>
-        <a id="create" ng-href="/customers/card">Create Client</a>
-	</div>
-</section>
+<div class="container" style="background-color:powderblue;">
+	<h1>Customer List</h1>
+	<input type="text" ng-click="searchCustomers()" />
+	<a ng-href="/customers/card" class="btn btn-success btn-xs"> 
+		<span class="glyphicon glyphicon-plus"></span> New Client
+    </a>
+	<section class="list">
+			<div ng-repeat="customer in customers|filter:search" >
+			<hr>                                      
+		        <h6>Id: <i>{{customer._id}}</i></h6>
+		        <h6>dni: <i>{{customer.dni}}</i></h6>
+		        <h6>First name: <i>{{customer.firstName}}</i></h6>
+		        <h6>Last name: <i>{{customer.lastName}}</i></h6>
+		        <a ng-href="/customer/{{customer._id}}" class="btn btn-primary btn-xs">Client card</a>
+		        <input type="button" ng-click="remove(customer._id)" value="Delete" class="btn btn-default btn-xs"/> 
+	        </div>
+	</section>
+</div>

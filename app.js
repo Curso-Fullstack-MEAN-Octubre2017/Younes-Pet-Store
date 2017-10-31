@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 
 var app = express();
 
+//incluimos la libreria de Socket.io
+app.io = require('socket.io')();
+require("./routes/socketio-manager.js")(app.io);
 
 //Llamamos a la clase donde definimos los datos 
 //var crud = require("./tests/customer_crud_tests.js");
@@ -37,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', customer_routes);
 app.use('/api', pet_routes);
 app.use('/api',appointment_routes);
+
 
 //// Nuevas Rutas van aqui:
 //app.use('/sample', sample);
