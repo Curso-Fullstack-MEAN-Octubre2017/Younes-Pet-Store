@@ -1,13 +1,13 @@
-<h1>Estoy Entrando</h1>
-<a ng-href='/appointments/'>Appointments List</a><br>
-<a ng-href="/appointment-detail/{{app.datos._id}}">Crear Cita</a>
-
-<div style="float:left;">
-	<appointments-details id="date">
-	</appointments-details>
-</div>
-
-<div>
-	<appointment-edit>
-	</appointment-edit>
+<div id="main" class="container" style="background-color:powderblue;">
+	<div class="row">
+		<div class="col-sm-5">
+			<appointments-details id="date">
+			</appointments-details>
+		</div>
+		
+		<div class="col-sm-5">
+			<appointment-edit>
+			</appointment-edit>
+		</div>
+	</div>
 </div>

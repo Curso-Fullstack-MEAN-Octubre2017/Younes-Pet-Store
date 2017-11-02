@@ -1,7 +1,7 @@
-<div class="container" style="background-color:powderblue;">
+<div id="main" class="container" style="background-color:powderblue;">
 <h1><strong>Customer Card</strong></h1>
+<a class="btn btn-success btn-xs" ng-href="/pets/cardNew/{{customer._id}}">New Pet</a>
 <section class="row">
-
 	<div class="col-sm-5">  
 	    <form id="miform">
 	    
@@ -15,7 +15,7 @@
 	    		
 			<div class="form-group row">	
 				<input type="button" ng-click="submit()" value="Save" class="btn btn-primary btn-xs"/>
-				<a ng-href="/pets/cardNew/{{customer._id}}" class="btn btn-default btn-xs" >New Pet</a>
+				
 				<input type="button" ng-click="remove()" value="Delete" class="btn btn-default btn-xs" />
 				<input type="button" ng-click="cancel()" value="Cancel" class="btn btn-default btn-xs"/>
 			</div>
@@ -23,7 +23,6 @@
 						
 		</form>
 	</div>
-	
 	<pet-list ng-show="!isNew" class="col-sm-5"></pet-list>
 </section>
 </div>

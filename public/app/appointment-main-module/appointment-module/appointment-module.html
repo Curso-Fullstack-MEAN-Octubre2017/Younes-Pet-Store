@@ -1,36 +1,34 @@
-<center>  
-        
-    <table border="1">
-        <thead>
-        <tr>
-            <th><a href="appointments/{{lastmonth}}"><i>Previous Month</i></a></th>
-            <th></th>
-            <th></th>
-            <th><label ng-model ="appointments.currentMonth"></label></th>
-            <th></th>
-            <th></th>
-            <th><a href="appointments/{{nextmonth}}"><i>Next Month</i></a></th>
-        </tr>
-        <tr>
-        	
-            <th ng-repeat="dayname in weeksday">{{dayname}}</th>
-            
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr ng-repeat="days in weeks">
-            <td ng-repeat="day in days track by $index">
-                <a href="appointmentsof/{{day.day | date:'yyyyMMdd'}}" >
-                    <div ng-class="[day.appointments >0]">
-                        <h4>{{day.day |date: 'dd' }}</h4>
-                        <i ng-if="day.appointments > -1">Dates</i> {{day.appointments}}
-                    </div>
-                </a>
-            </td>
-            <!-- "track by $index" indica que el ng-repeat muestre el dato por su indice en la lista en ver de por un id.
-             hashkey generado por angular que no permite duplicados  -->
-        </tr>
-        </tbody>
-    </table>
-</center>
+<section id="main" class="container" style="background-color:powderblue;">
+	<h1><Strong>Appointments Calender</Strong></h1>
+	<center>
+		<div style="background-color:#21d192;" class="table-bordered col-sm-8"> 
+		    <a href="appointments/{{lastmonth}}" class="col-sm-4"><i><strong>Previous Month</strong></i></a>
+		    <strong>{{currentMonth}}</strong>
+		    <a href="appointments/{{nextmonth}}" class="col-sm-4"><i><strong>Next Month</strong></i></a>
+	    </div> 
+	    <table class="table-bordered col-sm-8 text-center" >
+	        <thead>
+	        <tr>
+	        	
+	            <th ng-repeat="dayname in weeksday">{{dayname}}</th>
+	            
+	        </tr>
+	        </thead>
+	
+	        <tbody>
+	        <tr ng-repeat="days in weeks" class="active">
+	            <td ng-repeat="day in days track by $index">
+	                <a href="appointmentsof/{{day.day | date:'yyyyMMdd'}}" >
+	                    <div ng-class="[day.appointments >0]">
+	                        <h4>{{day.day |date: 'dd' }}</h4>
+	                        <i ng-if="day.appointments > -1">Dates</i> {{day.appointments}}
+	                    </div>
+	                </a>
+	            </td>
+	            <!-- "track by $index" indica que el ng-repeat muestre el dato por su indice en la lista en ver de por un id.
+	             hashkey generado por angular que no permite duplicados  -->
+	        </tr>
+	        </tbody>
+	    </table>
+	</center>
+</section>

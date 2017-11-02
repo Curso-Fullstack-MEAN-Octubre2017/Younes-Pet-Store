@@ -1,15 +1,11 @@
 <div>
-<h1>List of Appointments</h1>
-    <div ng-repeat="app in appointment">
-	    {{app.hora}} <a ng-click="AppointmentDetailes(app.datos._id)">Crear Cita</a>
-	    {{app.datos._id}}
-	    <br>
-		    Pet name:{{app.datos.pet.name}}
-		    <br>
-		    State:{{app.datos.state}}
-		    <br>
-		    Note:{{app.datos.note}}
-	    
-    <hr />
-    </div>
+<h1><strong>List of Appointments</strong></h1>   
+	<ul class="list-inline" ng-repeat="app in appointment">
+		<hr> 
+		<li>{{app.hora}}</li>
+		<li>Pet name:{{app.datos.pet.name}}</li>
+		<li>Note:{{app.datos.note}}</li>
+		<li><a ng-click="AppointmentDetailes(app.datos._id)" class="btn btn-success btn-xs" ng-if="app.datos">Show Date</a><br></li>
+		<li><a ng-click="AppointmentDetailes(app.datos.date)" class="btn btn-success btn-xs" ng-if="!app.datos">Create Date</a><br></li>
+	</ul>
 </div>

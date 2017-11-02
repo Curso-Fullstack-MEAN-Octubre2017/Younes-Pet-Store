@@ -8,17 +8,13 @@ angular.module('petStore')
         $locationProvider.html5Mode({ enabled: true });
         $routeProvider
             .when("/",{
-                template: "<h1>Pet Store Oficial</h1><br>" +
-                		"<a ng-href='/customers'>Customers List</a><br>" +
-                		"<a ng-href='/appointments/'>Appointments Calender</a><br>" 
+                templateUrl: '/app/main-page/main-page.html'
             })
             .when("/customer/:id",{
-              	//templateUrl: '<pet-card></pet-card>'
               	template: "<customer-card></customer-card>"
             })
             
             .when("/customers/card",{
-              	//templateUrl: '<pet-card></pet-card>'
               	template: "<customer-card></customer-card>"
             })
             

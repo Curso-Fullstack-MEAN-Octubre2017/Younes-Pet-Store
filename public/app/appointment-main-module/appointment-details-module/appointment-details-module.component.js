@@ -53,6 +53,9 @@ angular.module('appointmentsDetails', [])
 					$scope.$emit('appointment', 
 							{id:id})
 				}
+				$scope.CreateAppointment = function(date) {
+					console.log(date);
+				}
 
 			}
 		});

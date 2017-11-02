@@ -9,12 +9,12 @@ angular.module('appointmentsList').
             
             
             var currentMonth = moment().startOf('M').format("YYYYMMDD");
-           
+            
             if(monthParam){
             	 currentMonth=monthParam;
             }
             	
-            
+            $scope.currentMonth= moment(currentMonth, "YYYY MM DD").format("MMMM YYYY");
             
             var nextmonth = moment(currentMonth, 'YYYYMM').add(1, 'month').format('YYYYMM');
             /***************************************************/

@@ -102,30 +102,16 @@ angular.module('appointmentsService', []).factory('appointmentsService', functio
 		return d.promise;
 	}
 
-	service.deleteAppointment = (appointment)  => {
-		var d = $q.defer();
-
-		// fechas para calcular su posicion en el cache
- 		var month = moment(appointment.dateTimeStart).startOf('M');
-		var monthKey = month.format('YYYYMMDD');
-		var dateKey = moment(appointment.dateTimeStart).format('YYYYMMDD');;
-		var timeKey = moment(appointment.dateTimeStart).format('hh:mm');
-		   			
-		$http.delete("/api/appointments/" + appointment._id).then(
-    		function(response) {
-				if(service._appointmentsMapByMonth[monthKey]) { // lo borramos del cache
-					if(service._appointmentsMapByMonth[monthKey][dateKey] == undefined) {
-						service._appointmentsMapByMonth[monthKey][dateKey] = {};
-					}
-					service._appointmentsMapByMonth[monthKey][dateKey][timeKey] = undefined;
-				}    			
-    			d.resolve(0);
-	    	}, 
-	    	function(err) {
-	    		d.reject(err);
-			});
-
-		return d.promise;
+	service.deleteAppointment = (id)  => {
+		var q = $q.defer();
+		$http.delete('api/appointments/' + id, {params: {_id: id}})
+	        .success(function (res) {
+	            q.resolve(res);
+	            self._cache = {};
+	        }).error(function (err) {
+	        q.reject(err);
+        });
+		return q.promise;
 	}
 
 	
