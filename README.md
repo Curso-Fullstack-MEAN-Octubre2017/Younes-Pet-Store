@@ -68,21 +68,16 @@ el esquema de datos que usamos para mongoDB:
 ### 2. Servicios REST:
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/blob/88e02f145a711743f63ab42f306e19ea5d447d01/routes/customer-routes.js#L8
 
-
-la instancia de la clase donde tenemos las funciones del CRUD
-
-
 la ruta de lectura de datos que llama a la función getCustomers:
-
-La ruta de inserción  de datos :
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/blob/24ce341b55d9cf0f318ad3d2c6e50186b529ab0f/controllers/cutomer-controller.js#L21
 
 llama a la función  saveCustomer :
-
-
-La ruta de modificación de datos :
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/blob/24ce341b55d9cf0f318ad3d2c6e50186b529ab0f/controllers/cutomer-controller.js#L34
 
 llama a la función putCustomer donde hacemos el Update de datos:
-
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/blob/24ce341b55d9cf0f318ad3d2c6e50186b529ab0f/controllers/cutomer-controller.js#L70
+llama a la función deleteCustomer donde borramos los datos:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/blob/24ce341b55d9cf0f318ad3d2c6e50186b529ab0f/controllers/cutomer-controller.js#L85
 
 y despues exportamos todas las funciones :
 
