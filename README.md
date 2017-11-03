@@ -4,13 +4,21 @@
 
 
 Instalamos el framework express de nodeJS en la carpeta nodejserver que la creamos nosotros . Lo instalamos de forma Global usando –g 
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%201.PNG)
+
 Después entramos en la carpeta de los proyectos y generamos el esqueleto de nuestro proyecto
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%202.PNG)
+
 Después instalamos el entorno para nuestro proyecto
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%203.PNG)
+
 Y arrancamos el servidor
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%204.PNG)
+
 
 
 ## Diagrama de Arquitectura
@@ -35,9 +43,11 @@ Diagrama de flujo:
 Diagrama de flujo que representa como se puede navegar en las y dar de altas-bajas en la aplicación.
 
 Clientes y Mascotas:
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%206.PNG)
 
 Citas y Calendarios:
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%207.PNG)
 
 ## Servicios REST publicados:
@@ -64,7 +74,9 @@ https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/tree/master
 ## Implementación
 ### 1. Schema para MongoDB
 el esquema de datos que usamos para mongoDB:
+
 ![](https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/raw/master/imagenes/imagen%208.PNG)
+
 ### 2. Servicios REST:
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Younes-Pet-Store/blob/88e02f145a711743f63ab42f306e19ea5d447d01/routes/customer-routes.js#L8
 
