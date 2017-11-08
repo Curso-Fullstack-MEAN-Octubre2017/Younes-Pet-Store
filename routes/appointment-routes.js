@@ -4,7 +4,7 @@
 var express = require('express');
 
 
-//Aqui se importa el controlador de customer
+//Aqui se importa el controlador
 var AppointmentController = require('../controllers/appointment-controller');
 
 //asignando el router de express a variable api
@@ -19,6 +19,7 @@ api.get('/appointments', AppointmentController.getAppointments);
 api.get('/appointments/:startDate/:endDate', AppointmentController.getAppointmentsByDate);
 
 api.get('/appointments/:month', AppointmentController.getAppointments);
+
 api.get('/appointment/:id', AppointmentController.getAppointment);
 
 //Post

@@ -10,6 +10,10 @@ angular.module('appointmentMain').
 	    		$scope.$broadcast("appointmentSend",appointment);
 	    		
 	    	})
+	    	
+	    	$scope.$on("appointments:appSave", (event, data) => {
+            	alert("Cita añadida");
+            })
 	    	$scope.date=$routeParams.date
         	
         	

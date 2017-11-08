@@ -4,7 +4,7 @@
 var express = require('express');
 
 
-//Aqui se importa el controlador de customer
+//Aqui se importa el controlador 
 var CustomerController = require('../controllers/cutomer-controller');
 
 //asignando el router de express a variable api

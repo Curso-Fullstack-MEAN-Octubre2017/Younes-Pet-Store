@@ -9,7 +9,6 @@ var Pet = require('../models/pet');
 
 //funciones del controlador para recoger datos de la base de datos
 function getPets(req, res) {
-	console.log("hola owner");
     Pet.find({'idClient': req.params.owner}, function (err, pets) {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
         //if (!customers) return res.status(404).send({message: `No existen clientes`});
@@ -19,7 +18,6 @@ function getPets(req, res) {
 
 
 function getPet(req, res) {
-	console.log("hola pet");
 	console.log(req.params.id);
 	Pet.findById(req.params.id,(err, pet) => {
         if (err) {
@@ -41,7 +39,6 @@ function savePet(req, res) {
     //el cuerpo del formulario que vamos a mandar despues con el post
     var params = req.body;
     
-    console.log("save pet params",params);
 
     pet.name = params.name;
     pet.birthDate = params.birthDate;
@@ -53,7 +50,7 @@ function savePet(req, res) {
 
     //funcion callback si no hay error devuelve el usuario guardado sino devuelve el error
     pet.save((err, petStored) => {
-    	console.log("save petStored",petStored);
+    	
         //si existe un error
         /*if (err) return res.status(500).send({message: "Error al guardar el cliente"});
         //si el usuario guardado no existe

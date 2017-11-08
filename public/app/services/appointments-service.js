@@ -101,7 +101,23 @@ angular.module('appointmentsService', []).factory('appointmentsService', functio
 
 		return d.promise;
 	}
-
+	
+	/*
+	service.updateAppointment = (appointment) => {
+		
+        var q = $q.defer();
+        console.log("updating data.....",appointment);
+        $http.put("api/appointments/" + appointment._id, appointment).success(
+        		function (res) {
+        	console.log("updating data.....");
+            q.resolve(res);
+            self._cache = {}; // Borrar cache para refrescar nuevos datos //
+        });
+        
+       
+        return q.promise;
+    }
+	*/
 	service.deleteAppointment = (id)  => {
 		var q = $q.defer();
 		$http.delete('api/appointments/' + id, {params: {_id: id}})

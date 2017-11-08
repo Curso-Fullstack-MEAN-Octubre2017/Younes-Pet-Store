@@ -5,7 +5,10 @@ angular.module('customerList').
 	component('customerList', 
 			{templateUrl:'/app/customer-module/customer-module.html',
 			controller: function($rootScope, $scope, $http,$location, $routeParams, customersService) {
+				
+				
 				/* prueba de socketio */
+				/*
 				var socket = io.connect();
 				socket.on('appointments:evento1', function(data) {
 					console.log("Recibido el evento c:evento1", data);

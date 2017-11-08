@@ -1,6 +1,6 @@
 'use strict';
 /*
-esta es la clase de lectura y escritura de la parte del cliente 
+esta es la clase de lectura y escritura
 donde podemos definir o leer los datos de cada cliente nuevo que creamos
  
  */
@@ -59,7 +59,6 @@ function getAppointments(req, res) {
 function getAppointment(req, res) {
 	var id = req.params.id;
 
-    console.log(id);
 
     Appointment.findById(id, (err, appointment) => {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`});
@@ -80,7 +79,6 @@ function saveAppointment(req, res) {
 
     //el cuerpo del formulario que vamos a mandar despues con el post
     var params = req.body;
-    //console.log('hola3');
     console.log(params);
 
     appointment.pet = params.pet;

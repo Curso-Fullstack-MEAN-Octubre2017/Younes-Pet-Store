@@ -8,11 +8,10 @@ angular.module('petCard').
          	$scope.pets = {};
         	var id = $routeParams.id;
         	var idClient = $routeParams.idClient;
-        	console.log("petCard ids:", id, idClient);
 
         	if(id) {
         		$scope.pets = petService.get({id: id}, function(pet){
-        			//console.log(fecha);
+        			
         			$scope.pets.birthDate = moment($scope.pets.birthDate).toDate();
         		});
         		

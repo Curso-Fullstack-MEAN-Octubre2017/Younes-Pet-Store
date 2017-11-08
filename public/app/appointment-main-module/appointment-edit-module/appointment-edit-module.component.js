@@ -2,7 +2,7 @@
 angular.module('appointmentEdit', [])
 	.component('appointmentEdit',{
 		templateUrl : '/app/appointment-main-module/appointment-edit-module/appointment-edit-module.html',
-		controller : function($scope, $http,appointmentsService) {
+		controller : function($scope, $http,appointmentsService,$location) {
 			var id;
 			$scope.$on("appointmentSend",function(event,appointmentSend){
 				 var id = appointmentSend.id;
@@ -31,16 +31,25 @@ angular.module('appointmentEdit', [])
             					console.log("Error", response);
             				});
         		} else {
-        			appointmentsService.update({id: $scope.appointment._id}, $scope.appointment, function(appointments) {
+        			/*
+        			 
+        			appointmentsService.updateAppointment({id: $scope.appointment._id}, $scope.appointment, function(appointments) {
         				$scope.$emit("message:success", {message: "Pet dado actualizado con exito"})
         				
-        			}, errorCallback);  			
+        			})
+        			*/
+        			
+            		$http.put("/api/appointments/" + $scope.appointment._id, $scope.appointment).then(
+            				function(response){
+        		    			$scope.appointment = response.data;
+        		    			$scope.$emit("appointments:appSave",$scope.appointment);
+        		    			$location.path("appointments");
+            		});
         		}
     		}
         	
         	//funcion de borrar atraves del id 
         	$scope.remove = function(id) {
-        		console.log("mi id" +id);
         		if(confirm("Esta seguro que desea borrar este registro")) {
         			appointmentsService.deleteAppointment(id).then(function (res) {
                         history.back();
